@@ -42,8 +42,8 @@ resource "aws_rds_cluster" "rds" {
   master_password           = data.aws_ssm_parameter.DB_ADMIN_PASS.value
   db_subnet_group_name      = aws_db_subnet_group.rds.name
   vpc_security_group_ids    = [aws_security_group.rds.id]
-#  storage_encrypted         = true
-#  kms_key_id                = data.aws_kms_key.roboshop
+  storage_encrypted         = true
+  kms_key_id                = data.aws_kms_key.key.arn
 
   tags = merge(
     local.common_tags,

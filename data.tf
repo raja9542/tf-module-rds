@@ -6,6 +6,6 @@ data "aws_ssm_parameter" "DB_ADMIN_PASS" {
   name = "${var.env}.rds.DB_ADMIN_PASS"
 }
 
-data "aws_kms_key" "roboshop" {  // roboshop is a alias name given in key management service
+data "aws_kms_key" "key" {
   key_id = "alias/roboshop"
 }
